@@ -95,6 +95,12 @@
       position: absolute;
       opacity: 0.48;
       color: #b85d82;
+      animation: floatSlow 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatSlow {
+      0% { transform: translateY(0px) rotate(0deg); }
+      100% { transform: translateY(-8px) rotate(4deg); }
     }
 
     /* Falling Saturns & Spider Lilies Layer */
@@ -167,6 +173,12 @@
     .music-pill .note-icon {
       font-size: 0.95rem;
       color: var(--accent-rose);
+      animation: pulseNote 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulseNote {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.2); }
     }
 
     .youtube-drawer {
@@ -176,13 +188,13 @@
       border-radius: 18px;
       padding: 8px;
       box-shadow: 0 14px 32px rgba(139, 58, 92, 0.18);
-      transition: opacity 0.24s ease, transform 0.24s ease, visibility 0.24s ease;
+      transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s;
       transform-origin: top right;
     }
 
     .youtube-drawer.closed {
       opacity: 0;
-      transform: scale(0.92) translateY(-6px);
+      transform: scale(0.9) translateY(-8px);
       visibility: hidden;
       pointer-events: none;
       height: 0;
@@ -220,7 +232,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      animation: fadeScreen 0.35s ease;
+      animation: fadeScreen 0.38s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .screen.active {
@@ -230,11 +242,11 @@
     @keyframes fadeScreen {
       from {
         opacity: 0;
-        transform: translateY(8px);
+        transform: translateY(12px) scale(0.98);
       }
       to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(0) scale(1);
       }
     }
 
@@ -318,7 +330,7 @@
       font-weight: 700;
       cursor: pointer;
       box-shadow: var(--shadow-btn);
-      transition: transform 0.16s ease, box-shadow 0.16s ease;
+      transition: transform 0.16s ease, box-shadow 0.16s ease, filter 0.16s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -326,8 +338,12 @@
       margin: 0 auto;
     }
 
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
     .btn-primary:active {
-      transform: scale(0.96);
+      transform: scale(0.95);
     }
 
     .btn-circle {
@@ -345,12 +361,12 @@
       align-items: center;
       justify-content: center;
       margin: 18px auto 0;
-      transition: transform 0.16s ease;
+      transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
       flex-shrink: 0;
     }
 
     .btn-circle:active {
-      transform: scale(0.94);
+      transform: scale(0.9);
     }
 
     /* Cards */
@@ -363,6 +379,12 @@
       border-radius: 28px;
       padding: 26px 22px;
       box-shadow: var(--shadow-soft);
+      animation: cardPop 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes cardPop {
+      from { transform: scale(0.96); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
 
     /* Page 2: Memories */
@@ -377,6 +399,12 @@
       justify-content: center;
       margin: 0 auto 18px;
       box-shadow: 0 8px 18px rgba(184, 93, 130, 0.1);
+      animation: spinSlow 12s linear infinite;
+    }
+
+    @keyframes spinSlow {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     .memory-quote {
@@ -398,6 +426,11 @@
       width: 100%;
       cursor: pointer;
       user-select: none;
+      transition: transform 0.2s ease;
+    }
+
+    .envelope-container:hover {
+      transform: translateY(-3px);
     }
 
     .envelope-box {
@@ -412,11 +445,11 @@
       align-items: center;
       justify-content: center;
       border: 1px solid rgba(255, 255, 255, 0.6);
-      transition: transform 0.2s ease;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     .envelope-box:active {
-      transform: scale(0.98);
+      transform: scale(0.96) rotate(-1deg);
     }
 
     .envelope-flap {
@@ -428,6 +461,12 @@
       background: linear-gradient(180deg, #f9c8de 0%, #f1a8c9 100%);
       clip-path: polygon(0 0, 100% 0, 50% 100%);
       box-shadow: 0 4px 12px rgba(139, 58, 92, 0.12);
+      transform-origin: top center;
+      transition: transform 0.4s ease;
+    }
+
+    .envelope-container.opening .envelope-flap {
+      transform: rotateX(180deg);
     }
 
     .envelope-seal {
@@ -444,6 +483,15 @@
       font-size: 1.15rem;
       box-shadow: 0 6px 16px rgba(139, 58, 92, 0.28);
       border: 2px solid rgba(255, 255, 255, 0.65);
+      animation: heartbeat 1.8s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.12); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.08); }
+      60% { transform: scale(1); }
     }
 
     .tap-hint {
@@ -469,7 +517,18 @@
 
     .letter-card.open {
       display: block;
-      animation: fadeScreen 0.35s ease;
+      animation: letterSlideIn 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes letterSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
     }
 
     .letter-card h3 {
@@ -500,11 +559,24 @@
       flex-direction: column;
       align-items: center;
       margin: 4px auto 14px;
-      transition: transform 0.18s ease;
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .jar-wrapper:hover {
+      transform: scale(1.03);
     }
 
     .jar-wrapper:active {
-      transform: scale(0.95) rotate(-2deg);
+      transform: scale(0.94) rotate(-3deg);
+    }
+
+    .jar-svg {
+      animation: jarIdle 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes jarIdle {
+      0% { transform: translateY(0) rotate(0deg); }
+      100% { transform: translateY(-4px) rotate(1.5deg); }
     }
 
     .jar-note-box {
@@ -522,6 +594,17 @@
       line-height: 1.45;
       color: var(--text-primary);
       box-shadow: 0 8px 20px rgba(139, 58, 92, 0.08);
+      transition: all 0.25s ease;
+    }
+
+    .jar-note-box.pop {
+      animation: notePop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes notePop {
+      0% { transform: scale(0.95); opacity: 0.5; }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); opacity: 1; }
     }
 
     /* Page 5: Friendship Quiz */
@@ -587,7 +670,16 @@
       font-weight: 500;
       color: var(--text-primary);
       cursor: pointer;
-      transition: all 0.16s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .quiz-opt:hover {
+      border-color: var(--accent-rose);
+      background: rgba(255, 255, 255, 0.98);
+    }
+
+    .quiz-opt:active {
+      transform: scale(0.98);
     }
 
     .quiz-opt.selected {
@@ -595,7 +687,14 @@
       color: #ffffff;
       border-color: #b85d82;
       font-weight: 600;
-      box-shadow: 0 6px 14px rgba(184, 93, 130, 0.25);
+      box-shadow: 0 6px 16px rgba(184, 93, 130, 0.3);
+      animation: selectPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes selectPop {
+      0% { transform: scale(0.96); }
+      60% { transform: scale(1.03); }
+      100% { transform: scale(1); }
     }
 
     /* Page 6: Make a Wish Cake */
@@ -605,22 +704,26 @@
       display: inline-flex;
       flex-direction: column;
       align-items: center;
-      transition: transform 0.18s ease;
+      transition: transform 0.2s ease;
+    }
+
+    .cake-stage:hover {
+      transform: scale(1.02);
     }
 
     .cake-stage:active {
-      transform: scale(0.96);
+      transform: scale(0.95);
     }
 
     .flame {
       transform-origin: center bottom;
       animation: flicker 1.1s infinite alternate ease-in-out;
-      transition: opacity 0.35s ease, transform 0.35s ease;
+      transition: opacity 0.4s ease, transform 0.4s ease;
     }
 
     .cake-stage.wished .flame {
       opacity: 0;
-      transform: scale(0.2);
+      transform: scale(0.1) translateY(-10px);
       animation: none;
     }
 
@@ -635,6 +738,12 @@
       font-weight: 600;
       color: var(--accent-rose-dark);
       margin-top: 4px;
+      animation: fadeInWish 0.4s ease;
+    }
+
+    @keyframes fadeInWish {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* Page 7: Final Card */
@@ -727,12 +836,12 @@
       <div class="eyebrow">OPEN WHEN YOU ARE READY</div>
       <h2 class="page-title">Birthday Letter 💌</h2>
 
-      <div class="envelope-container" id="envelopeBox" onclick="openLetter()">
+      <div class="envelope-container" id="envelopeContainer" onclick="openLetter()">
         <div class="envelope-box">
           <div class="envelope-flap"></div>
           <div class="envelope-seal">♡</div>
         </div>
-        <p class="tap-hint">tap the envelope to open it ♡</p>
+        <p class="tap-hint" id="envelopeHint">tap the envelope to open it ♡</p>
       </div>
 
       <div class="letter-card" id="letterCard">
@@ -761,7 +870,7 @@
       <h2 class="page-title">Appreciation Jar 🫙</h2>
 
       <div class="jar-wrapper" onclick="pickJarMessage()">
-        <svg width="136" height="164" viewBox="0 0 140 170" fill="none">
+        <svg class="jar-svg" width="136" height="164" viewBox="0 0 140 170" fill="none">
           <rect x="42" y="10" width="56" height="16" rx="8" fill="#e89bbd" stroke="#b85d82" stroke-width="2.5"/>
           <rect x="48" y="24" width="44" height="8" rx="4" fill="#f7c8dc" stroke="#b85d82" stroke-width="2"/>
           <rect x="26" y="32" width="88" height="126" rx="28" fill="rgba(255,245,250,0.85)" stroke="#b85d82" stroke-width="2.5"/>
@@ -913,13 +1022,17 @@
       }
     }
 
-    /* Page 3: Envelope Interaction */
+    /* Page 3: Envelope Interaction with Opening Animation */
     function openLetter() {
-      document.getElementById('envelopeBox').style.display = 'none';
-      document.getElementById('letterCard').classList.add('open');
+      const container = document.getElementById('envelopeContainer');
+      container.classList.add('opening');
+      setTimeout(() => {
+        container.style.display = 'none';
+        document.getElementById('letterCard').classList.add('open');
+      }, 350);
     }
 
-    /* Page 4: Appreciation Jar Messages */
+    /* Page 4: Appreciation Jar Messages with Pop Animation */
     const jarMessages = [
       '“You make even ordinary moments more fun.”',
       '“You make ordinary conversations way less boring.”',
@@ -938,7 +1051,12 @@
         idx = Math.floor(Math.random() * jarMessages.length);
       } while (idx === lastJarIndex && jarMessages.length > 1);
       lastJarIndex = idx;
-      document.getElementById('jarMessage').textContent = jarMessages[idx];
+      
+      const box = document.getElementById('jarMessage');
+      box.classList.remove('pop');
+      void box.offsetWidth; // trigger reflow
+      box.textContent = jarMessages[idx];
+      box.classList.add('pop');
     }
 
     /* Page 5: Friendship Quiz */
@@ -958,7 +1076,10 @@
 
     /* Page 7: Start Over */
     function startOver() {
-      document.getElementById('envelopeBox').style.display = 'block';
+      const container = document.getElementById('envelopeContainer');
+      container.classList.remove('opening');
+      container.style.display = 'block';
+      document.getElementById('envelopeHint').style.display = 'block';
       document.getElementById('letterCard').classList.remove('open');
       document.getElementById('jarMessage').textContent = 'tap the jar for a little reminder ♡';
       lastJarIndex = -1;
