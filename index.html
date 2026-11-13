@@ -131,7 +131,7 @@
       }
     }
 
-    /* Persistent Top-Right Spotify Player */
+    /* Persistent Top-Right YouTube Player */
     .music-widget {
       position: fixed;
       top: max(14px, env(safe-area-inset-top));
@@ -169,7 +169,7 @@
       color: var(--accent-rose);
     }
 
-    .spotify-drawer {
+    .youtube-drawer {
       width: min(310px, calc(100vw - 28px));
       background: rgba(255, 248, 251, 0.96);
       border: 1px solid rgba(184, 93, 130, 0.22);
@@ -180,7 +180,7 @@
       transform-origin: top right;
     }
 
-    .spotify-drawer.closed {
+    .youtube-drawer.closed {
       opacity: 0;
       transform: scale(0.92) translateY(-6px);
       visibility: hidden;
@@ -191,11 +191,11 @@
       overflow: hidden;
     }
 
-    .spotify-drawer iframe {
+    .youtube-drawer iframe {
       border-radius: 12px;
       display: block;
       width: 100%;
-      height: 80px;
+      height: 174px;
       border: none;
     }
 
@@ -668,16 +668,17 @@
   <!-- Falling Saturns & Spider Lilies -->
   <div class="falling-layer" id="fallingLayer"></div>
 
-  <!-- Persistent Spotify Player -->
+  <!-- Persistent YouTube Player -->
   <div class="music-widget">
     <button type="button" class="music-pill" id="musicToggle" aria-expanded="false">
       <span class="note-icon">♫</span>
       <span>Saturn by SZA</span>
     </button>
-    <div class="spotify-drawer closed" id="spotifyDrawer">
+    <div class="youtube-drawer closed" id="youtubeDrawer">
       <iframe
-        src="https://open.spotify.com/embed/track/1bjeWoagtHmUKputLVyDxQ?utm_source=generator"
-        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        src="https://www.youtube.com/embed/V2G8ESoDXm8"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
         loading="lazy"
         title="Saturn by SZA">
       </iframe>
@@ -879,27 +880,27 @@
   </main>
 
   <script>
-    /* Persistent Spotify Toggle State */
+    /* Persistent YouTube Toggle State */
     const musicToggle = document.getElementById('musicToggle');
-    const spotifyDrawer = document.getElementById('spotifyDrawer');
-    const STORAGE_KEY = 'roth_spotify_open';
+    const youtubeDrawer = document.getElementById('youtubeDrawer');
+    const STORAGE_KEY = 'roth_youtube_open';
 
-    function applySpotifyState(isOpen) {
+    function applyYouTubeState(isOpen) {
       if (isOpen) {
-        spotifyDrawer.classList.remove('closed');
+        youtubeDrawer.classList.remove('closed');
         musicToggle.setAttribute('aria-expanded', 'true');
       } else {
-        spotifyDrawer.classList.add('closed');
+        youtubeDrawer.classList.add('closed');
         musicToggle.setAttribute('aria-expanded', 'false');
       }
     }
 
     const savedMusicState = localStorage.getItem(STORAGE_KEY) === 'true';
-    applySpotifyState(savedMusicState);
+    applyYouTubeState(savedMusicState);
 
     musicToggle.addEventListener('click', () => {
-      const nextState = spotifyDrawer.classList.contains('closed');
-      applySpotifyState(nextState);
+      const nextState = youtubeDrawer.classList.contains('closed');
+      applyYouTubeState(nextState);
       localStorage.setItem(STORAGE_KEY, String(nextState));
     });
 
