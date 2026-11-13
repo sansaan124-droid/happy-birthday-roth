@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff4f6">
+<title>Happy Birthday Roth!</title>
+<style>
+:root{--pink:#e99caf;--deep:#bd7188;--cream:#fffaf7;--ink:#765966;--pale:#fff0f3}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(160deg,#fff9f6,#fff0f4 55%,#fce8ee);color:var(--ink);font-family:Georgia,'Times New Roman',serif}
+button,input{font:inherit}button{cursor:pointer}
+.wrap{max-width:850px;margin:auto;padding:24px 16px 55px}
+.hero{text-align:center;padding:52px 18px 34px;position:relative}
+.sticker{font-size:25px;display:inline-block;margin:0 7px;animation:float 3s ease-in-out infinite}
+.sticker:nth-child(2){animation-delay:.7s}.sticker:nth-child(3){animation-delay:1.3s}
+@keyframes float{50%{transform:translateY(-7px) rotate(7deg)}}
+.eyebrow{font:12px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:#c58b9a}
+h1{font-size:clamp(42px,9vw,76px);font-weight:normal;line-height:1.02;margin:15px 0;color:#c77991}
+.subtitle{font-size:18px;line-height:1.6;max-width:490px;margin:0 auto;color:#987987}
+.panel{background:#fffdfb;border:1px solid #f5dce2;border-radius:25px;padding:25px;margin:17px 0;box-shadow:0 10px 30px #dba8b51a}
+h2{font-weight:normal;color:#c77991;font-size:27px;margin:0 0 10px}
+.muted{font:14px/1.65 Arial,sans-serif;color:#a28a94}
+.center{text-align:center}
+.primary{border:0;background:#d98fa3;color:white;border-radius:999px;padding:12px 22px;box-shadow:0 5px 12px #d98fa344}
+.primary:hover{background:#c97d94}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+.time{background:#fff1f4;border-radius:17px;padding:15px 5px;text-align:center}
+.time strong{display:block;font:bold clamp(25px,6vw,38px) Arial,sans-serif;color:#c77991}
+.time span{font:11px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:#a77e8c}
+.note{background:#fff5f6;border-radius:18px;padding:20px;line-height:1.85;white-space:pre-wrap;text-align:left}
+.gift{font-size:78px;border:0;background:transparent;transition:transform .2s}
+.gift:hover{transform:translateY(-5px) rotate(-5deg)}
+.hidden{display:none!important}
+.memory-empty{background:#fff7f8;border:1px dashed #e8bdc9;border-radius:18px;padding:25px 18px;line-height:1.8}
+.cake-wrap{display:flex;justify-content:center;padding:10px}
+.cake{position:relative;width:190px;height:140px;margin-top:35px;cursor:pointer;outline-offset:8px}
+.layer{position:absolute;bottom:0;left:10px;width:170px;height:72px;background:#f3b8c6;border-radius:12px 12px 18px 18px;box-shadow:inset 0 -9px #e99caf}
+.icing{position:absolute;bottom:58px;left:10px;width:170px;height:30px;background:#fff1f3;border-radius:50% 50% 10px 10px}
+.icing:after{content:"";position:absolute;left:18px;top:13px;width:18px;height:24px;border-radius:0 0 12px 12px;background:#fff1f3;box-shadow:42px 5px #fff1f3,88px -1px #fff1f3,125px 6px #fff1f3}
+.candle{position:absolute;bottom:88px;left:88px;width:13px;height:39px;border-radius:5px;background:repeating-linear-gradient(45deg,#fff 0 5px,#e7a1b2 5px 10px)}
+.flame{position:absolute;bottom:126px;left:87px;width:16px;height:23px;background:#ffd36e;border-radius:60% 40% 60% 40%;transform:rotate(10deg);box-shadow:0 0 20px #ffd36e;animation:flicker .8s infinite alternate}
+@keyframes flicker{to{transform:rotate(-8deg) scale(.88)}}
+footer{text-align:center;color:#b18c98;font:12px Arial,sans-serif;padding:22px}
+audio{width:100%;margin-top:14px}
+@media(max-width:520px){.panel{padding:20px 16px}.hero{padding-top:38px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="hero">
+  <div><span class="sticker">🌷</span><span class="sticker">🎀</span><span class="sticker">🧸</span></div>
+  <div class="eyebrow">a little something made just for you</div>
+  <h1>Happy Birthday,<br>Roth ♡</h1>
+  <p class="subtitle">A tiny corner of the internet to celebrate you. I hope your day is full of smiles, fun, and all your favourite things.</p>
+  <div style="margin-top:18px">💗 ✨ 🫧 🌸</div>
+</header>
+
+<section class="panel center">
+  <h2>Counting down to your day</h2>
+  <p class="muted">November 26, 2026</p>
+  <div class="countdown" aria-live="polite">
+    <div class="time"><strong id="days">--</strong><span>Days</span></div>
+    <div class="time"><strong id="hours">--</strong><span>Hours</span></div>
+    <div class="time"><strong id="minutes">--</strong><span>Minutes</span></div>
+    <div class="time"><strong id="seconds">--</strong><span>Seconds</span></div>
+  </div>
+  <p class="muted" id="countdownMessage">Not long until your special day ♡</p>
+</section>
+
+<section class="panel center">
+  <h2>A little song for you 🎧</h2>
+  <p class="muted">I picked “Saturn” by SZA for this page. Press play when you're ready ♡</p>
+  <div style="font-size:34px;margin:8px">🌙 ✨ 🪐</div>
+  <label class="primary" for="songInput" style="display:inline-block;margin:8px auto">Choose song ♡</label>
+  <input id="songInput" type="file" accept="audio/*" style="display:block;margin:10px auto;max-width:100%">
+  <audio id="song" controls preload="none" class="hidden"></audio>
+  <p class="muted" id="songStatus">Choose your Saturn audio file from your device, then press play ♡</p>
+</section>
+
+<section class="panel center">
+  <h2>A little present for you 🎁</h2>
+  <p class="muted">There's something waiting inside. Tap the gift!</p>
+  <button class="gift" id="giftButton" aria-label="Open the surprise gift">🎁</button>
+  <div id="giftMessage" class="note hidden">HAPPY BIRTHDAY ROTH!! 🥳💗
+
+You're turning 13!! I hope you have the best day ever and get to enjoy every bit of it.
+
+I'm glad our friendship has helped you in many ways, because you've helped me too, even in ways you might not notice. I'm grateful for all the random conversations, jokes, silly arguments, and moments where we end up making up again. Even when we annoy each other, I'm still glad I have you as my friend.
+
+I know I'm not always the best at showing that I care, and sometimes I disappear or get distracted by my own stuff, but that doesn't mean our friendship isn't important to me. I hope we keep making more memories, laughing at the dumbest things, and being there for each other.
+
+And yes, I do use my brain outside of school 😭 ...most of the time. I know I can be oblivious sometimes, but you don't have to roast me every time I miss something. Also, I don't rage-bait you on purpose... okay, maybe a little bit sometimes.
+
+Thank you for being you, Roth. I hope 13 treats you kindly. You deserve lots of happiness, good memories, and a year full of little things that make you smile.
+
+HAPPY BIRTHDAYYY!! 🎂🌷</div>
+</section>
+
+<section class="panel center">
+  <h2>Our memory corner 📸</h2>
+  <div class="memory-empty">
+    <div style="font-size:38px">🥲📷</div>
+    <b>Sorry, there are no memory photos here!</b><br>
+    I didn't take screenshots while we were playing, so now our photo album is looking a little empty 😭<br>
+    Really unfortunate. Guess we were too busy having fun to remember to take pictures. We'll just have to make more memories and actually screenshot them next time ♡
+  </div>
+</section>
+
+<section class="panel center">
+  <h2>Make a birthday wish 🎂</h2>
+  <p class="muted">Tap the cake to blow out the candle and make a wish!</p>
+  <div class="cake-wrap">
+    <div class="cake" id="cake" role="button" tabindex="0" aria-label="Blow out the birthday candle">
+      <div class="layer"></div><div class="icing"></div><div class="candle"></div><div class="flame" id="flame"></div>
+    </div>
+  </div>
+  <p id="wishMessage" class="muted">Hope you wished for something good 😙</p>
+</section>
+
+<footer>made with lots of love, pink, and questionable memory-taking skills ♡<br>🌷 🎀 🧸</footer>
+</main>
+<script>
+const target = new Date(2026, 10, 26, 0, 0, 0);
+function updateCountdown(){
+  const now=new Date(); let diff=target-now;
+  if(diff<=0){
+    ['days','hours','minutes','seconds'].forEach(id=>document.getElementById(id).textContent='0');
+    document.getElementById('countdownMessage').textContent='It’s your day, Roth!! Happy birthday ♡'; return;
+  }
+  const d=Math.floor(diff/86400000); diff%=86400000;
+  const h=Math.floor(diff/3600000); diff%=3600000;
+  const m=Math.floor(diff/60000); diff%=60000;
+  const s=Math.floor(diff/1000);
+  ['days','hours','minutes','seconds'].forEach((id,i)=>document.getElementById(id).textContent=[d,h,m,s][i]);
+}
+updateCountdown(); setInterval(updateCountdown,1000);
+document.getElementById('giftButton').addEventListener('click',()=>{
+  document.getElementById('giftMessage').classList.remove('hidden');
+  document.getElementById('giftButton').textContent='💝';
+});
+let currentSongUrl = null;
+document.getElementById('songInput').addEventListener('change', e => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  if (currentSongUrl) URL.revokeObjectURL(currentSongUrl);
+  currentSongUrl = URL.createObjectURL(file);
+  const player = document.getElementById('song');
+  player.src = currentSongUrl;
+  player.classList.remove('hidden');
+  document.getElementById('songStatus').textContent = 'Selected: ' + file.name + ' — press play when you’re ready ♡';
+});
+function blow(){
+  document.getElementById('flame').style.display='none';
+  document.getElementById('wishMessage').textContent='Hope you wished for something good 😙';
+}
+document.getElementById('cake').addEventListener('click',blow);
+document.getElementById('cake').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();blow();}});
+</script>
+</body>
+</html>
