@@ -3,159 +3,175 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff4f6">
+<meta name="theme-color" content="#fff0f5">
 <title>Happy Birthday Roth!</title>
 <style>
-:root{--pink:#e99caf;--deep:#bd7188;--cream:#fffaf7;--ink:#765966;--pale:#fff0f3}
+:root{--pink:#f6b8cb;--deep:#c96f91;--pale:#fff5f8;--cream:#fffaf4;--ink:#654b55;--muted:#987d87;--line:#f2d8e1}
 *{box-sizing:border-box}
-body{margin:0;background:linear-gradient(160deg,#fff9f6,#fff0f4 55%,#fce8ee);color:var(--ink);font-family:Georgia,'Times New Roman',serif}
-button,input{font:inherit}button{cursor:pointer}
-.wrap{max-width:850px;margin:auto;padding:24px 16px 55px}
-.hero{text-align:center;padding:52px 18px 34px;position:relative}
-.sticker{font-size:25px;display:inline-block;margin:0 7px;animation:float 3s ease-in-out infinite}
-.sticker:nth-child(2){animation-delay:.7s}.sticker:nth-child(3){animation-delay:1.3s}
-@keyframes float{50%{transform:translateY(-7px) rotate(7deg)}}
-.eyebrow{font:12px Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:#c58b9a}
-h1{font-size:clamp(42px,9vw,76px);font-weight:normal;line-height:1.02;margin:15px 0;color:#c77991}
-.subtitle{font-size:18px;line-height:1.6;max-width:490px;margin:0 auto;color:#987987}
-.panel{background:#fffdfb;border:1px solid #f5dce2;border-radius:25px;padding:25px;margin:17px 0;box-shadow:0 10px 30px #dba8b51a}
-h2{font-weight:normal;color:#c77991;font-size:27px;margin:0 0 10px}
-.muted{font:14px/1.65 Arial,sans-serif;color:#a28a94}
+body{margin:0;background:radial-gradient(circle at 10% 5%,#ffe5ee 0,transparent 28%),radial-gradient(circle at 95% 20%,#fcebdc 0,transparent 25%),var(--pale);color:var(--ink);font-family:Georgia,'Times New Roman',serif}
+button{font:inherit;cursor:pointer}
+.wrap{width:min(760px,92%);margin:auto;padding:26px 0 60px}
+.hero{text-align:center;padding:38px 18px 28px;position:relative}
+.kicker{font:700 11px/1.4 Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--deep)}
+h1{font-size:clamp(38px,9vw,66px);line-height:1.02;margin:12px 0;color:#c96f91;font-weight:normal}
+.subtitle{font:14px/1.7 Arial,sans-serif;color:var(--muted)}
+.sticker{position:absolute;font-size:28px;animation:float 3s ease-in-out infinite}
+.s1{left:8%;top:20px}.s2{right:8%;top:50px;animation-delay:.7s}.s3{right:15%;bottom:5px;animation-delay:1.2s}
+@keyframes float{50%{transform:translateY(-9px) rotate(8deg)}}
+.card{background:rgba(255,255,255,.82);border:1px solid var(--line);border-radius:24px;padding:23px;margin:17px 0;box-shadow:0 10px 30px rgba(190,120,145,.08)}
+h2{font-size:25px;font-weight:normal;color:#bd6c8b;margin:0 0 10px}
+p{font:14px/1.8 Arial,sans-serif;margin:8px 0;color:#765d67}
+.small{font-size:12px;color:var(--muted)}
+.count{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0 4px}
+.time{background:#fff1f5;border:1px solid var(--line);border-radius:16px;padding:12px 15px;min-width:75px;text-align:center}
+.time b{display:block;font:26px Arial,sans-serif;color:#c96f91}.time span{font:10px Arial,sans-serif;letter-spacing:1px;color:var(--muted)}
+.btn{border:0;border-radius:999px;background:#d985a3;color:white;padding:12px 19px;font: bold 13px Arial,sans-serif;box-shadow:0 5px 12px #d985a333;transition:.2s}
+.btn:hover{transform:translateY(-2px);background:#c96f91}
+.btn.light{background:#fff0f5;color:#b96686;border:1px solid var(--line);box-shadow:none}
 .center{text-align:center}
-.primary{border:0;background:#d98fa3;color:white;border-radius:999px;padding:12px 22px;box-shadow:0 5px 12px #d98fa344}
-.primary:hover{background:#c97d94}
-.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
-.time{background:#fff1f4;border-radius:17px;padding:15px 5px;text-align:center}
-.time strong{display:block;font:bold clamp(25px,6vw,38px) Arial,sans-serif;color:#c77991}
-.time span{font:11px Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;color:#a77e8c}
-.note{background:#fff5f6;border-radius:18px;padding:20px;line-height:1.85;white-space:pre-wrap;text-align:left}
-.gift{font-size:78px;border:0;background:transparent;transition:transform .2s}
-.gift:hover{transform:translateY(-5px) rotate(-5deg)}
-.hidden{display:none!important}
-.memory-empty{background:#fff7f8;border:1px dashed #e8bdc9;border-radius:18px;padding:25px 18px;line-height:1.8}
-.cake-wrap{display:flex;justify-content:center;padding:10px}
-.cake{position:relative;width:190px;height:140px;margin-top:35px;cursor:pointer;outline-offset:8px}
-.layer{position:absolute;bottom:0;left:10px;width:170px;height:72px;background:#f3b8c6;border-radius:12px 12px 18px 18px;box-shadow:inset 0 -9px #e99caf}
-.icing{position:absolute;bottom:58px;left:10px;width:170px;height:30px;background:#fff1f3;border-radius:50% 50% 10px 10px}
-.icing:after{content:"";position:absolute;left:18px;top:13px;width:18px;height:24px;border-radius:0 0 12px 12px;background:#fff1f3;box-shadow:42px 5px #fff1f3,88px -1px #fff1f3,125px 6px #fff1f3}
-.candle{position:absolute;bottom:88px;left:88px;width:13px;height:39px;border-radius:5px;background:repeating-linear-gradient(45deg,#fff 0 5px,#e7a1b2 5px 10px)}
-.flame{position:absolute;bottom:126px;left:87px;width:16px;height:23px;background:#ffd36e;border-radius:60% 40% 60% 40%;transform:rotate(10deg);box-shadow:0 0 20px #ffd36e;animation:flicker .8s infinite alternate}
-@keyframes flicker{to{transform:rotate(-8deg) scale(.88)}}
-footer{text-align:center;color:#b18c98;font:12px Arial,sans-serif;padding:22px}
-audio{width:100%;margin-top:14px}
-@media(max-width:520px){.panel{padding:20px 16px}.hero{padding-top:38px}}
+.cake{font-size:76px;line-height:1.3;cursor:pointer;display:inline-block;transition:.2s;user-select:none}
+.cake:active{transform:scale(.92)}
+.envelope{font-size:76px;cursor:pointer;display:inline-block;transition:.2s}.envelope:hover{transform:rotate(-5deg) scale(1.05)}
+.note{background:#fff8fb;border:1px dashed #e8a9bf;border-radius:18px;padding:17px;margin-top:15px;text-align:left;display:none}
+.note.show{display:block;animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.jar{font-size:76px;cursor:pointer;display:inline-block}
+.pill{display:inline-block;border-radius:99px;background:#fff0f5;color:#b96686;padding:6px 10px;font:11px Arial,sans-serif;margin:3px}
+.memory{background:linear-gradient(135deg,#fff5f8,#fffaf3);border:1px dashed #e8b3c5;border-radius:18px;padding:22px;text-align:center}
+.memory .camera{font-size:42px}
+.quiz-q{font: bold 15px Arial,sans-serif;margin:15px 0 9px}
+.choices{display:grid;gap:8px}
+.choice{border:1px solid var(--line);border-radius:13px;padding:11px;background:#fffafd;text-align:left;color:var(--ink);font:13px Arial,sans-serif}
+.choice:hover{background:#fff0f5}
+.choice.selected{border-color:#d985a3;background:#ffedf3}
+.result{font:13px/1.7 Arial,sans-serif;color:#b96686;margin-top:12px;min-height:22px}
+.footer{text-align:center;font:12px Arial,sans-serif;color:#b58e9c;padding:25px 10px}
+hr{border:0;border-top:1px solid var(--line);margin:18px 0}
+.heart{color:#d985a3}
 </style>
 </head>
 <body>
 <main class="wrap">
-<header class="hero">
-  <div><span class="sticker">🌷</span><span class="sticker">🎀</span><span class="sticker">🧸</span></div>
-  <div class="eyebrow">a little something made just for you</div>
-  <h1>Happy Birthday,<br>Roth ♡</h1>
-  <p class="subtitle">A tiny corner of the internet to celebrate you. I hope your day is full of smiles, fun, and all your favourite things.</p>
-  <div style="margin-top:18px">💗 ✨ 🫧 🌸</div>
-</header>
+  <header class="hero">
+    <span class="sticker s1">🎀</span><span class="sticker s2">🌷</span><span class="sticker s3">🧸</span>
+    <div class="kicker">a little birthday corner made for you</div>
+    <h1>Happy Birthday<br>Roth! ♡</h1>
+    <div class="subtitle">A whole tiny website because one birthday message wasn't enough ✨</div>
+    <div style="margin-top:17px"><span class="pill">13 looks good on you</span><span class="pill">certified birthday girl</span><span class="pill">made with ♡</span></div>
+  </header>
 
-<section class="panel center">
-  <h2>Counting down to your day</h2>
-  <p class="muted">November 26, 2026</p>
-  <div class="countdown" aria-live="polite">
-    <div class="time"><strong id="days">--</strong><span>Days</span></div>
-    <div class="time"><strong id="hours">--</strong><span>Hours</span></div>
-    <div class="time"><strong id="minutes">--</strong><span>Minutes</span></div>
-    <div class="time"><strong id="seconds">--</strong><span>Seconds</span></div>
-  </div>
-  <p class="muted" id="countdownMessage">Not long until your special day ♡</p>
-</section>
-
-<section class="panel center">
-  <h2>A little song for you 🎧</h2>
-  <p class="muted">I picked “Saturn” by SZA for this page. Press play when you're ready ♡</p>
-  <div style="font-size:34px;margin:8px">🌙 ✨ 🪐</div>
-  <label class="primary" for="songInput" style="display:inline-block;margin:8px auto">Choose song ♡</label>
-  <input id="songInput" type="file" accept="audio/*" style="display:block;margin:10px auto;max-width:100%">
-  <audio id="song" controls preload="none" class="hidden"></audio>
-  <p class="muted" id="songStatus">Choose your Saturn audio file from your device, then press play ♡</p>
-</section>
-
-<section class="panel center">
-  <h2>A little present for you 🎁</h2>
-  <p class="muted">There's something waiting inside. Tap the gift!</p>
-  <button class="gift" id="giftButton" aria-label="Open the surprise gift">🎁</button>
-  <div id="giftMessage" class="note hidden">HAPPY BIRTHDAY ROTH!! 🥳💗
-
-You're turning 13!! I hope you have the best day ever and get to enjoy every bit of it.
-
-I'm glad our friendship has helped you in many ways, because you've helped me too, even in ways you might not notice. I'm grateful for all the random conversations, jokes, silly arguments, and moments where we end up making up again. Even when we annoy each other, I'm still glad I have you as my friend.
-
-I know I'm not always the best at showing that I care, and sometimes I disappear or get distracted by my own stuff, but that doesn't mean our friendship isn't important to me. I hope we keep making more memories, laughing at the dumbest things, and being there for each other.
-
-And yes, I do use my brain outside of school 😭 ...most of the time. I know I can be oblivious sometimes, but you don't have to roast me every time I miss something. Also, I don't rage-bait you on purpose... okay, maybe a little bit sometimes.
-
-Thank you for being you, Roth. I hope 13 treats you kindly. You deserve lots of happiness, good memories, and a year full of little things that make you smile.
-
-HAPPY BIRTHDAYYY!! 🎂🌷</div>
-</section>
-
-<section class="panel center">
-  <h2>Our memory corner 📸</h2>
-  <div class="memory-empty">
-    <div style="font-size:38px">🥲📷</div>
-    <b>Sorry, there are no memory photos here!</b><br>
-    I didn't take screenshots while we were playing, so now our photo album is looking a little empty 😭<br>
-    Really unfortunate. Guess we were too busy having fun to remember to take pictures. We'll just have to make more memories and actually screenshot them next time ♡
-  </div>
-</section>
-
-<section class="panel center">
-  <h2>Make a birthday wish 🎂</h2>
-  <p class="muted">Tap the cake to blow out the candle and make a wish!</p>
-  <div class="cake-wrap">
-    <div class="cake" id="cake" role="button" tabindex="0" aria-label="Blow out the birthday candle">
-      <div class="layer"></div><div class="icing"></div><div class="candle"></div><div class="flame" id="flame"></div>
+  <section class="card center">
+    <h2>Counting down to your day</h2>
+    <p>November 26, 2026 — your day to be extra spoiled 🎂</p>
+    <div class="count" id="countdown">
+      <div class="time"><b>--</b><span>DAYS</span></div><div class="time"><b>--</b><span>HOURS</span></div><div class="time"><b>--</b><span>MINUTES</span></div><div class="time"><b>--</b><span>SECONDS</span></div>
     </div>
-  </div>
-  <p id="wishMessage" class="muted">Hope you wished for something good 😙</p>
-</section>
+    <p class="small" id="countText">The birthday countdown is getting ready...</p>
+  </section>
 
-<footer>made with lots of love, pink, and questionable memory-taking skills ♡<br>🌷 🎀 🧸</footer>
+  <section class="card center">
+    <h2>Make a wish! 🕯️</h2>
+    <p>Tap the cake. No pressure, but it better be a good wish.</p>
+    <div class="cake" role="button" tabindex="0" aria-label="Tap the birthday cake" onclick="cakeWish()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();cakeWish()}">🎂</div>
+    <p id="cakeText" class="result">Your birthday cake is waiting...</p>
+  </section>
+
+  <section class="card center">
+    <h2>A little letter for you 💌</h2>
+    <p>There's something inside this envelope. Go on, open it.</p>
+    <div class="envelope" role="button" tabindex="0" aria-label="Open birthday letter" onclick="toggleLetter()" onkeydown="if(event.key==='Enter'){toggleLetter()}">💌</div>
+    <div class="note" id="letter">
+      <p><b>HAPPY BIRTHDAY ROTH!! 🥳🎀</b></p>
+      <p>You're turning 13!! I hope this year brings you lots of happiness, good memories, and plenty of reasons to laugh. I'm really glad our friendship has helped you in many ways, because you've also made a difference in my life. Even on ordinary days, you somehow make things more entertaining — sometimes a little TOO entertaining 😭</p>
+      <p>Thank you for being someone I can joke around with, talk to, and be myself around. We've had our random conversations, silly moments, and little arguments, but I'm still grateful for all of it. I hope we keep making more memories together (and maybe actually remember to take screenshots this time).</p>
+      <p>And to answer your question from my birthday letter: yes, I do use my brain outside of school. It just occasionally goes on a break when you start roasting me. 😭 Also, I know I can be annoying sometimes, but you make it very easy to return the favour.</p>
+      <p>I hope you have the best birthday, Roth. Stay silly, keep being yourself, and don't let anyone steal your cake. You deserve a really good year. 💗</p>
+      <p style="text-align:right"><b>from your favourite occasionally-brain-off person ♡</b></p>
+    </div>
+  </section>
+
+  <section class="card center">
+    <h2>A jar full of little reminders 🌸</h2>
+    <p>Tap the jar to pick a tiny reason you're appreciated.</p>
+    <div class="jar" role="button" tabindex="0" aria-label="Pick an appreciation note" onclick="pickNote()" onkeydown="if(event.key==='Enter'){pickNote()}">🫙</div>
+    <div class="note show" id="jarNote" style="text-align:center">You're fun to be around, even when you're busy trying to annoy me.</div>
+    <button class="btn light" onclick="pickNote()">Pick another note</button>
+  </section>
+
+  <section class="card center">
+    <h2>Random Roth-approved surprise 🎁</h2>
+    <p>Press the button. You have no idea what you're getting.</p>
+    <div style="font-size:48px;margin:12px">🎁</div>
+    <button class="btn" onclick="randomSurprise()">Open a random surprise</button>
+    <div class="note show" id="surprise" style="text-align:center">Birthday privileges activated. You are allowed to be extra today.</div>
+  </section>
+
+  <section class="card">
+    <h2 class="center">A very serious friendship quiz 📝</h2>
+    <p class="center">Let's see if you know the person who made this little website.</p>
+    <div id="quiz">
+      <div class="quiz-q">1. What was the main reason the memory gallery has no actual photos?</div>
+      <div class="choices">
+        <button class="choice" onclick="answer(this,false)">The camera was scared</button>
+        <button class="choice" onclick="answer(this,true)">I kept forgetting to take screenshots while we were playing 😭</button>
+        <button class="choice" onclick="answer(this,false)">The screenshots went on vacation</button>
+      </div>
+      <div class="quiz-q">2. What happens when you roast me?</div>
+      <div class="choices">
+        <button class="choice" onclick="answer(this,false)">I become a genius</button>
+        <button class="choice" onclick="answer(this,true)">My brain sometimes takes a break</button>
+        <button class="choice" onclick="answer(this,false)">I suddenly become quiet forever</button>
+      </div>
+      <div class="quiz-q">3. What's the most important birthday rule?</div>
+      <div class="choices">
+        <button class="choice" onclick="answer(this,false)">No cake allowed</button>
+        <button class="choice" onclick="answer(this,true)">Roth gets spoiled and enjoys her day</button>
+        <button class="choice" onclick="answer(this,false)">Do homework immediately</button>
+      </div>
+      <div class="result" id="quizResult">Choose your answers. This test is extremely official (not really).</div>
+    </div>
+  </section>
+
+  <section class="card center">
+    <h2>About our missing memories 📸</h2>
+    <div class="memory">
+      <div class="camera">📷</div>
+      <p><b>Sorry, there are no memory photos here!</b></p>
+      <p>Apparently I was too busy playing and forgot to take screenshots. So basically, the memories exist… the evidence does not. Very professional of me. 😭</p>
+      <p class="small">We'll just have to make more memories and remember to capture them next time. Deal?</p>
+    </div>
+  </section>
+
+  <div class="footer">made with lots of pink, a little teasing, and lots of appreciation ♡<br>Happy 13th birthday, Roth! 🎀</div>
 </main>
 <script>
-const target = new Date(2026, 10, 26, 0, 0, 0);
+const birthday = new Date('2026-11-26T00:00:00+07:00').getTime();
 function updateCountdown(){
-  const now=new Date(); let diff=target-now;
-  if(diff<=0){
-    ['days','hours','minutes','seconds'].forEach(id=>document.getElementById(id).textContent='0');
-    document.getElementById('countdownMessage').textContent='It’s your day, Roth!! Happy birthday ♡'; return;
-  }
-  const d=Math.floor(diff/86400000); diff%=86400000;
-  const h=Math.floor(diff/3600000); diff%=3600000;
-  const m=Math.floor(diff/60000); diff%=60000;
-  const s=Math.floor(diff/1000);
-  ['days','hours','minutes','seconds'].forEach((id,i)=>document.getElementById(id).textContent=[d,h,m,s][i]);
+ const now=Date.now(), diff=birthday-now, el=document.getElementById('countdown');
+ if(diff<=0){el.innerHTML='<div class="time"><b>🎉</b><span>IT IS YOUR DAY</span></div>';document.getElementById('countText').textContent='HAPPY BIRTHDAY ROTH!!';return;}
+ const vals=[Math.floor(diff/86400000),Math.floor(diff%86400000/3600000),Math.floor(diff%3600000/60000),Math.floor(diff%60000/1000)];
+ const labels=['DAYS','HOURS','MINUTES','SECONDS'];
+ el.innerHTML=vals.map((v,i)=>`<div class="time"><b>${v}</b><span>${labels[i]}</span></div>`).join('');
+ document.getElementById('countText').textContent='Getting closer to your birthday! 💗';
 }
-updateCountdown(); setInterval(updateCountdown,1000);
-document.getElementById('giftButton').addEventListener('click',()=>{
-  document.getElementById('giftMessage').classList.remove('hidden');
-  document.getElementById('giftButton').textContent='💝';
-});
-let currentSongUrl = null;
-document.getElementById('songInput').addEventListener('change', e => {
-  const file = e.target.files && e.target.files[0];
-  if (!file) return;
-  if (currentSongUrl) URL.revokeObjectURL(currentSongUrl);
-  currentSongUrl = URL.createObjectURL(file);
-  const player = document.getElementById('song');
-  player.src = currentSongUrl;
-  player.classList.remove('hidden');
-  document.getElementById('songStatus').textContent = 'Selected: ' + file.name + ' — press play when you’re ready ♡';
-});
-function blow(){
-  document.getElementById('flame').style.display='none';
-  document.getElementById('wishMessage').textContent='Hope you wished for something good 😙';
-}
-document.getElementById('cake').addEventListener('click',blow);
-document.getElementById('cake').addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();blow();}});
+updateCountdown();setInterval(updateCountdown,1000);
+function cakeWish(){document.getElementById('cakeText').textContent='Hope you wished for something good 😙';}
+function toggleLetter(){document.getElementById('letter').classList.toggle('show');}
+const notes=[
+ 'You make ordinary conversations way less boring.',
+ 'Your sense of humour is honestly something else 😭',
+ 'I'm glad we became friends.',
+ 'You can be annoying… but unfortunately, you're still appreciated.',
+ 'Thanks for being someone I can share random thoughts with.',
+ 'I hope we get to make lots more silly memories together.',
+ 'You deserve good things, today and always. ♡',
+ 'Never underestimate how much your presence can brighten a day.'
+];let last=-1;
+function pickNote(){let n;do{n=Math.floor(Math.random()*notes.length)}while(n===last);last=n;document.getElementById('jarNote').textContent=notes[n];}
+const surprises=['You have officially unlocked unlimited birthday cake privileges. 🍰','Reminder: you are legally required to enjoy your birthday. (I made that rule.)','A tiny reminder that you're appreciated more than you think. 💗','Your birthday mission: have fun, eat something nice, and cause only a reasonable amount of chaos.','If being iconic was homework, you'd probably still ask if it's due. 😭','Sending you 13 invisible cupcakes. Please imagine them responsibly. 🧁'];
+function randomSurprise(){document.getElementById('surprise').textContent=surprises[Math.floor(Math.random()*surprises.length)];}
+let score=0,answered=0;
+function answer(btn,correct){const group=btn.parentElement;if(group.dataset.done)return;group.dataset.done='1';answered++;if(correct){score++;btn.classList.add('selected');}else{btn.classList.add('selected');}document.getElementById('quizResult').textContent=answered===3?`You got ${score}/3! ${score===3?'Okayyy, you actually know me. Impressive. 😭':'Not bad! You still get birthday cake privileges. 🎂'}`:`${correct?'Correct! You know me too well 😭':'Nope, but I'll let you try the next one.'} (${answered}/3 answered)`;}
 </script>
 </body>
 </html>
