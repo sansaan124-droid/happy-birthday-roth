@@ -1,1 +1,0 @@
-Replace your GitHub Pages index.html with this index.html and upload all four JPEG files into the same repository folder. The Memories page uses the restored original staggered Polaroid layout.
